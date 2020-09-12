@@ -8,6 +8,7 @@ import { AppLoading } from 'expo';
 
 import Home from './containers/home/Home';
 import Login from './containers/login/Login';
+import Register from './containers/register/Register';
 
 import PrimaryNovaBoldFont from './assets/fonts/Proxima-Nova-Bold.otf';
 import PrimaryNovaSemiBoldFont from './assets/fonts/Proxima-Nova-Semibold.otf';
@@ -17,6 +18,7 @@ import PrimaryNovaMediumFont from './assets/fonts/Proxima-Nova-Medium.otf';
 type RootStackParamList = {
   Login: undefined;
   Home: undefined;
+  Register: undefined;
 };
 
 export type ThemeI = {
@@ -59,6 +61,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
           <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>

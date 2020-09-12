@@ -10,15 +10,19 @@ const useStyles = (theme: Partial<ThemeI>) => StyleSheet.create({
   },
 });
 
-type Props = { className?: any; title: string };
-const Button = ({ className, title }: Props) => {
+type Props = { buttonStyle?: any; title: string; titleStyle?: any, onPress?: (value?: any) => any };
+const Button = ({
+  buttonStyle, title, titleStyle, onPress,
+}: Props) => {
   const { theme } = useContext(ThemeContext);
   const styles = useStyles(theme);
 
   return (
     <ButtonElement
       title={title}
-      buttonStyle={[styles.button, className]}
+      buttonStyle={[styles.button, buttonStyle]}
+      titleStyle={titleStyle}
+      onPress={onPress}
     />
   );
 };

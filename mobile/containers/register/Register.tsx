@@ -40,7 +40,8 @@ const Login = () => {
 
   const handleEmailChange = (value: any) => setEmail(value);
   const handlePasswordChange = (value: any) => setPassword(value);
-  const navigate = () => navigation.navigate('Register');
+  const navigate = () => navigation.navigate('Login');
+
   return (
     <View style={styles.root}>
       <View style={styles.main}>
@@ -61,12 +62,12 @@ const Login = () => {
         </View>
         <View style={styles.inputItem}>
           <Button
-            title="Login"
+            title="S'enregistrer"
           />
         </View>
         <View style={styles.inputItem}>
           <Button
-            title="S'enregistrer"
+            title="Login"
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.titleStyle}
             onPress={navigate}
