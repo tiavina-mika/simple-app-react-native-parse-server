@@ -7,6 +7,7 @@ const useStyles = (theme: Partial<ThemeI>) => StyleSheet.create({
   button: {
     backgroundColor: theme?.colors.primary,
     paddingVertical: 20,
+    width: '100%',
   },
 });
 
