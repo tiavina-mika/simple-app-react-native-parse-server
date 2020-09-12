@@ -18,10 +18,10 @@ import PrimaryNovaSemiBoldFont from './assets/fonts/Proxima-Nova-Semibold.otf';
 import PrimaryNovaRegularFont from './assets/fonts/Proxima-Nova-Regular.otf';
 import PrimaryNovaMediumFont from './assets/fonts/Proxima-Nova-Medium.otf';
 
-// Parse.setAsyncStorage(AsyncStorage);
+Parse.setAsyncStorage(AsyncStorage);
 
-// Parse.initialize(keys.applicationId, keys.javascriptKey);
-// Parse.serverURL = keys.serverURL;
+Parse.initialize('mobileapp-2020-09', 'my-js-key');
+Parse.serverURL = 'http://localhost:8080/parse';
 
 type RootStackParamList = {
   Login: undefined;

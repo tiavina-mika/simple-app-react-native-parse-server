@@ -11,6 +11,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+      "@typescript-eslint/no-unsafe-call": "off",
       "react/require-default-props": "off",
       "import/no-cycle": "off",
       "no-console": "off",

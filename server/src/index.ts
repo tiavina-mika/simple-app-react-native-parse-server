@@ -13,6 +13,7 @@ const DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/mobi
 const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 const APP_NAME = process.env.APP_NAME || 'mobileapp';
 const { DASHBOARD_USER, DASHBOARD_PASSWORD } = process.env;
+
 const SERVER_URL = `http://${SERVER_HOST}:${SERVER_PORT}/parse`;
 
 const app = express();
@@ -25,29 +26,26 @@ const parseServerAPI = new ParseServer({
     appId: APP_ID,
     masterKey: MASTER_KEY,
     serverURL: SERVER_URL,
+    // javascriptKey: 'my-js-key',
 });
 
-const dashboard = new ParseDashboard(
-    {
-        apps: [
-            {
-                serverURL: SERVER_URL,
-                appId: APP_ID,
-                masterKey: MASTER_KEY,
-                appName: APP_NAME,
-            },
-        ],
-        users: [
-            {
-                user: DASHBOARD_USER,
-                pass: DASHBOARD_PASSWORD,
-                apps: [{ appId: APP_ID }],
-            },
-        ],
-    }
-    // options
-    // { allowInsecureHTTP: allowInsecureHTTP }
-);
+const dashboard = new ParseDashboard({
+    apps: [
+        {
+            serverURL: SERVER_URL,
+            appId: APP_ID,
+            masterKey: MASTER_KEY,
+            appName: APP_NAME,
+        },
+    ],
+    users: [
+        {
+            user: DASHBOARD_USER,
+            pass: DASHBOARD_PASSWORD,
+            apps: [{ appId: APP_ID }],
+        },
+    ],
+});
 
 app.use('/parse', parseServerAPI);
 
