@@ -1,5 +1,5 @@
 import express from 'express';
-// import path from 'path';
+import path from 'path';
 import { ParseServer } from 'parse-server';
 import ParseDashboard from 'parse-dashboard';
 import 'dotenv/config';
@@ -12,7 +12,9 @@ const MASTER_KEY = process.env.MASTER_KEY || 'F23xUQdRmQLQwxV5N6a74kqF8aPqIM9F';
 const DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/mobileapp-2020-09';
 const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 const APP_NAME = process.env.APP_NAME || 'mobileapp';
-const { DASHBOARD_USER, DASHBOARD_PASSWORD } = process.env;
+// const { DASHBOARD_USER, DASHBOARD_PASSWORD } = process.env;
+const DASHBOARD_USER = 'michael';
+const DASHBOARD_PASSWORD = 'michael';
 
 const SERVER_URL = `http://${SERVER_HOST}:${SERVER_PORT}/parse`;
 
@@ -22,7 +24,7 @@ const app = express();
 
 const parseServerAPI = new ParseServer({
     databaseURI: DATABASE_URI,
-    // cloud: path.resolve(__dirname, 'cloud/main.js'),
+    cloud: path.resolve(__dirname, 'cloud/main.ts'),
     appId: APP_ID,
     masterKey: MASTER_KEY,
     serverURL: SERVER_URL,

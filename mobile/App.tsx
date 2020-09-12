@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -20,7 +20,7 @@ import PrimaryNovaMediumFont from './assets/fonts/Proxima-Nova-Medium.otf';
 
 Parse.setAsyncStorage(AsyncStorage);
 
-Parse.initialize('mobileapp-2020-09', 'my-js-key');
+Parse.initialize('mobileapp-2020-09');
 Parse.serverURL = 'http://localhost:8080/parse';
 
 type RootStackParamList = {
