@@ -1,10 +1,13 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
+import { AsyncStorage } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ThemeProvider } from 'react-native-elements';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import Parse from 'parse/react-native';
 
 import Home from './containers/home/Home';
 import Login from './containers/login/Login';
@@ -14,6 +17,11 @@ import PrimaryNovaBoldFont from './assets/fonts/Proxima-Nova-Bold.otf';
 import PrimaryNovaSemiBoldFont from './assets/fonts/Proxima-Nova-Semibold.otf';
 import PrimaryNovaRegularFont from './assets/fonts/Proxima-Nova-Regular.otf';
 import PrimaryNovaMediumFont from './assets/fonts/Proxima-Nova-Medium.otf';
+
+// Parse.setAsyncStorage(AsyncStorage);
+
+// Parse.initialize(keys.applicationId, keys.javascriptKey);
+// Parse.serverURL = keys.serverURL;
 
 type RootStackParamList = {
   Login: undefined;
@@ -60,9 +68,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+          <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
