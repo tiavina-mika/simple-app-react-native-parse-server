@@ -10,6 +10,6 @@
     "resolveJsonModule": true,
     "strict": true,
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["fonts.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
